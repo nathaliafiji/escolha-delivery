@@ -34,7 +34,6 @@
             color: #fff;
             border-radius: 5px;
             transition: background-color 0.3s;
-            width: 100%;
             max-width: 400px;
         }
         button:hover {
@@ -72,6 +71,13 @@
         }
         #formOpcoes {
             margin-top: 1rem;
+        }
+
+        /* Centralização específica para mobile */
+        @media (max-width: 600px) {
+            button {
+                width: 100%;
+            }
         }
     </style>
 </head>
