@@ -24,123 +24,155 @@
             margin-bottom: 1.5rem;
             text-align: center;
         }
-        button {
-            padding: 10px 25px;
-            font-size: 1rem;
-            cursor: pointer;
-            margin-top: 1rem;
-            border: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+        .container {
+            width: 100%;
             max-width: 400px;
-        }
-        .btn-escolher {
-            background-color: #333;
-            color: #fff;
-        }
-        .btn-escolher:hover {
-            background-color: #555;
-        }
-        .btn-adicionar {
-            background-color: #888;
-            color: #fff;
-            padding: 10px 15px;
-            margin-top: 10px;
-        }
-        .btn-adicionar:hover {
-            background-color: #aaa;
-        }
-        .result {
-            margin-top: 2rem;
-            font-size: 1.5rem;
-            font-weight: 400;
-            text-align: center;
         }
         .options-container {
             margin-top: 1.5rem;
             width: 100%;
-            max-width: 400px;
+        }
+        .input-container {
             display: flex;
-            flex-direction: column;
             align-items: stretch;
         }
         .options-container input[type="text"] {
-            width: 100%;
+            flex-grow: 1;
             padding: 10px;
             font-size: 1rem;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 5px 0 0 5px;
+        }
+        .btn-adicionar {
+            background-color: #888;
+            color: #fff;
+            padding: 10px;
+            border-radius: 0 5px 5px 0;
+            margin-top: 0;
+            width: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        .btn-adicionar:hover {
+            background-color: #aaa;
         }
         #formOpcoes {
-            margin-top: 1rem;
+            margin-top: 0.8rem;
+            text-align: left;
         }
         #formOpcoes label {
             display: block;
-            font-size: 1rem;
-            margin-top: 10px;
+            font-size: 0.9rem;
+            margin-top: 8px;
             cursor: pointer;
         }
         #formOpcoes input[type="checkbox"] {
             margin-right: 10px;
             transform: scale(1.2);
         }
+        .btn-escolher {
+            background-color: #333;
+            color: #fff;
+            width: 100%;
+            margin-top: 1rem;
+            padding: 10px 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .btn-escolher:hover {
+            background-color: #555;
+        }
+        .result {
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            font-weight: 400;
+            text-align: center;
+            width: 100%;
+        }
 
-        /* Centralização específica para mobile */
+        /* Ajustes para mobile */
         @media (max-width: 600px) {
-            button {
-                width: 100%;
+            body {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            .container {
+                width: 95%;
+            }
+            .options-container input[type="text"],
+            .btn-adicionar,
+            .btn-escolher {
+                font-size: 0.9rem;
+            }
+            #formOpcoes label {
+                font-size: 0.9rem;
+            }
+            .result {
+                font-size: 1.2rem;
             }
         }
     </style>
 </head>
 <body>
     <h1>🍽️ O que vamos pedir no delivery hoje?</h1>
-    <div class="options-container" id="opcoesContainer">
-        <input type="text" id="novaOpcao" placeholder="Adicionar nova opção">
-        <button class="btn-adicionar" onclick="adicionarOpcao()">➕ Adicionar</button>
-    </div>
-    <div id="listaOpcoes">
-        <form id="formOpcoes">
-            <label><input type="checkbox" value="Pizza" checked> 🍕 Pizza</label>
-            <label><input type="checkbox" value="Hambúrguer" checked> 🍔 Hambúrguer</label>
-            <label><input type="checkbox" value="Comida Japonesa" checked> 🍱 Comida Japonesa</label>
-            <label><input type="checkbox" value="Comida Chinesa" checked> 🥡 Comida Chinesa</label>
-            <label><input type="checkbox" value="Comida Mexicana" checked> 🌮 Comida Mexicana</label>
-            <label><input type="checkbox" value="Comida Italiana" checked> 🍝 Comida Italiana</label>
-            <label><input type="checkbox" value="Carnes" checked> 🥩 Carnes</label>
-            <label><input type="checkbox" value="Salada" checked> 🥗 Salada</label>
-        </form>
-    </div>
-    <button class="btn-escolher" onclick="escolherDelivery()">🎲 Escolher!</button>
-    <div class="result" id="resultado"></div>
+    <div class="container">
+        <div class="options-container" id="opcoesContainer">
+            <div class="input-container">
+                <input type="text" id="novaOpcao" placeholder="Adicionar nova opção">
+                <button class="btn-adicionar" onclick="adicionarOpcao()">➕</button>
+            </div>
+        </div>
+        <div id="listaOpcoes">
+            <form id="formOpcoes">
+                <label><input type="checkbox" value="Pizza" checked> 🍕 Pizza</label>
+                <label><input type="checkbox" value="Hambúrguer" checked> 🍔 Hambúrguer</label>
+                <label><input type="checkbox" value="Comida Japonesa" checked> 🍱 Comida Japonesa</label>
+                <label><input type="checkbox" value="Comida Chinesa" checked> 🥡 Comida Chinesa</label>
+                <label><input type="checkbox" value="Comida Mexicana" checked> 🌮 Comida Mexicana</label>
+                <label><input type="checkbox" value="Comida Italiana" checked> 🍝 Comida Italiana</label>
+                <label><input type="checkbox" value="Carnes" checked> 🥩 Carnes</label>
+                <label><input type="checkbox" value="Salada" checked> 🥗 Salada</label>
+            </form>
+        </div>
+        <button class="btn-escolher" onclick="escolherDelivery()">🎲 Escolher!</button>
+        <div class="result" id="resultado"></div>
 
-    <script>
-        function adicionarOpcao() {
-            const novaOpcao = document.getElementById("novaOpcao").value.trim();
-            if (novaOpcao) {
-                const formOpcoes = document.getElementById("formOpcoes");
-                const novoLabel = document.createElement("label");
-                const novoCheckbox = document.createElement("input");
-                novoCheckbox.type = "checkbox";
-                novoCheckbox.value = novaOpcao;
-                novoCheckbox.checked = true;
-                novoLabel.appendChild(novoCheckbox);
-                novoLabel.appendChild(document.createTextNode(` 🍽️ ${novaOpcao}`));
-                formOpcoes.appendChild(novoLabel);
-                document.getElementById("novaOpcao").value = "";
+        <script>
+            function adicionarOpcao() {
+                const novaOpcao = document.getElementById("novaOpcao").value.trim();
+                if (novaOpcao) {
+                    const formOpcoes = document.getElementById("formOpcoes");
+                    const novoLabel = document.createElement("label");
+                    const novoCheckbox = document.createElement("input");
+                    novoCheckbox.type = "checkbox";
+                    novoCheckbox.value = novaOpcao;
+                    novoCheckbox.checked = true;
+                    novoLabel.appendChild(novoCheckbox);
+                    novoLabel.appendChild(document.createTextNode(` 🍽️ ${novaOpcao}`));
+                    formOpcoes.appendChild(novoLabel);
+                    document.getElementById("novaOpcao").value = "";
+                }
             }
-        }
 
-        function escolherDelivery() {
-            const opcoesSelecionadas = Array.from(document.querySelectorAll("#formOpcoes input:checked"))
-                .map(opcao => opcao.value);
-            if (opcoesSelecionadas.length > 0) {
-                const escolhaAleatoria = opcoesSelecionadas[Math.floor(Math.random() * opcoesSelecionadas.length)];
-                document.getElementById("resultado").textContent = `🎉 Vamos pedir: ${escolhaAleatoria}!`;
-            } else {
-                document.getElementById("resultado").textContent = "⚠️ Por favor, selecione pelo menos uma opção.";
+            function escolherDelivery() {
+                const opcoesSelecionadas = Array.from(document.querySelectorAll("#formOpcoes input:checked"))
+                    .map(opcao => opcao.value);
+                if (opcoesSelecionadas.length > 0) {
+                    const escolhaAleatoria = opcoesSelecionadas[Math.floor(Math.random() * opcoesSelecionadas.length)];
+                    document.getElementById("resultado").textContent = `🎉 Vamos pedir: ${escolhaAleatoria}!`;
+                } else {
+                    document.getElementById("resultado").textContent = "⚠️ Por favor, selecione pelo menos uma opção.";
+                }
             }
-        }
-    </script>
-</body>
+        </script>
+    </body>
 </html>
